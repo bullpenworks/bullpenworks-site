@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bullpen Works for Electrical</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Every call answered, every job booked — 24/7 AI receptionist and back-office automation for skilled trades.">
+<link rel="canonical" href="https://bullpenworks.com/electrical.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📞</text></svg>">
+<style>
+:root {
+  --paper:#F7F7F5; --sheet:#FFFFFF; --ink:#232A2E; --muted:#5F6B70;
+  --accent:#C25E00; --accent-ink:#FFFFFF; --accent-soft:#F4E3D3;
+  --steel:#3B5A73; --steel-soft:#E3EAF0; --line:#DCE0DE;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#15191C; --sheet:#1C2226; --ink:#E5E8E6; --muted:#98A3A7;
+    --accent:#F0913A; --accent-ink:#1A1108; --accent-soft:#3A2A1A;
+    --steel:#85ACC7; --steel-soft:#232E37; --line:#2B3338;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#15191C; --sheet:#1C2226; --ink:#E5E8E6; --muted:#98A3A7;
+  --accent:#F0913A; --accent-ink:#1A1108; --accent-soft:#3A2A1A;
+  --steel:#85ACC7; --steel-soft:#232E37; --line:#2B3338;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Avenir Next","Helvetica Neue",system-ui,sans-serif;
+  font-size:17px;line-height:1.6}
+.condensed{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;
+  text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px}
+header.top{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:10}
+.topbar{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap}
+.wordmark{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;font-size:19px;color:var(--ink);text-decoration:none}
+.wordmark span{color:var(--accent)}
+nav.main{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+nav.main a{color:var(--muted);text-decoration:none;font-size:14.5px;padding:6px 10px;border-radius:6px}
+nav.main a:hover{background:var(--steel-soft);color:var(--ink)}
+nav.main a.active{color:var(--accent);font-weight:600}
+nav.main a.navcta{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.hero{padding:64px 0 46px}
+.hero h1{font-size:clamp(34px,5.5vw,56px);line-height:1.04;margin:0 0 16px;max-width:17ch;text-wrap:balance}
+.hero .subhead{font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 26px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:16px;
+  padding:13px 22px;border-radius:8px;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--sheet)}
+.ctarow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.ctarow-center{justify-content:center}
+section.band{padding:46px 0;border-top:1px solid var(--line)}
+h2.sec{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;text-transform:uppercase;
+  letter-spacing:.05em;font-weight:700;font-size:28px;margin:0 0 20px;text-wrap:balance}
+.lede{color:var(--muted);max-width:62ch;margin:-8px 0 24px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.stat{background:var(--sheet);border:1px solid var(--line);border-top:3px solid var(--accent);
+  border-radius:10px;padding:20px 22px}
+.stat .big{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-weight:700;
+  font-size:30px;line-height:1.1;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.stat p{margin:0;color:var(--muted);font-size:15px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+ol.steps li{counter-increment:s;background:var(--sheet);border:1px solid var(--line);
+  border-radius:10px;padding:18px 20px 18px 66px;position:relative;max-width:72ch}
+ol.steps li::before{content:counter(s);position:absolute;left:20px;top:16px;
+  font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:24px;
+  color:var(--accent);width:30px;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.card h3{margin:0 0 8px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.faq{display:grid;gap:10px;max-width:76ch}
+details.qa{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:0}
+details.qa summary{cursor:pointer;font-weight:600;padding:16px 20px;list-style:none}
+details.qa summary::before{content:"+";color:var(--accent);font-weight:700;margin-right:10px}
+details.qa[open] summary::before{content:"–"}
+details.qa p{margin:0;padding:0 20px 16px 40px;color:var(--muted)}
+.tablewrap{overflow-x:auto}
+table.pricing{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+table.pricing th{text-align:left;font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;
+  text-transform:uppercase;letter-spacing:.08em;font-size:12.5px;color:var(--muted);
+  border-bottom:2px solid var(--ink);padding:8px 14px 8px 0}
+table.pricing td{border-bottom:1px solid var(--line);padding:12px 14px 12px 0;vertical-align:top;font-size:15.5px}
+.pricenote{color:var(--muted);font-size:14.5px;margin-top:14px}
+.finalband{background:var(--accent-soft);border-top:1px solid var(--line);padding:56px 0;text-align:center}
+.finalband h2{font-size:clamp(26px,4vw,38px);margin:0 0 22px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer .frow{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
+footer a{color:var(--steel)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:640px){.hero{padding:44px 0 36px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap topbar">
+<a class="wordmark" href="index.html">Bullpen<span>&nbsp;Works</span></a>
+<nav class="main" aria-label="Site"><a href="index.html">Home</a><a href="hvac.html">HVAC</a><a href="plumbing.html">Plumbing</a><a href="electrical.html" class="active">Electrical</a><a href="solar.html">Solar</a><a href="pricing.html">Pricing</a><a href="roi.html">ROI calculator</a><a class="navcta" href="mailto:hello@bullpenworks.com?subject=15-minute%20walkthrough">Book a walkthrough</a></nav>
+</div></header>
+<main>
+<div class="wrap hero">
+<h1 class="condensed">Panel upgrades don't leave voicemails.</h1>
+<p class="subhead">Every call answered, every job booked — 24/7 AI receptionist and back-office automation for skilled trades.</p>
+<div class="ctarow"><a class="btn btn-primary" href="mailto:hello@bullpenworks.com?subject=15-minute%20walkthrough">Book a 15-minute walkthrough</a><a class="btn btn-ghost" href="mailto:hello@bullpenworks.com">Email us: hello@bullpenworks.com</a></div>
+</div>
+<section class="band"><div class="wrap">
+<h2 class="sec">The math</h2>
+<p class="lede">Electrical work skews toward project leads, not 2 AM emergencies — panel upgrades, EV chargers, rewires. Every missed call isn't just a job, it's a lost estimate that walks straight to the next name on the list.</p><div class="stats"><div class="stat"><div class="big">$300–$3,000</div><p>— what a missed emergency call costs you, on the low end. Project leads like panel upgrades and EV chargers often run well above that, and a missed call there doesn't even make it onto the list of jobs you know you lost.</p></div><div class="stat"><div class="big">One saved job per month covers the fee.</div><p>Everything after that is money you weren't collecting before.</p></div></div>
+</div></section>
+<section class="band"><div class="wrap">
+<h2 class="sec">How it works</h2>
+<ol class="steps"><li><strong>We design your call flow in a week.</strong> No new hardware, no new number to give out — we build it around how your office already runs.</li><li><strong>It answers overflow and after-hours, and books straight onto your calendar.</strong> Housecall Pro, Jobber, or Google Calendar — wherever you already run your schedule. An EV-charger install inquiry gets captured with the details — panel type, vehicle, timeline — and an estimate visit gets booked straight onto your calendar.</li><li><strong>You listen to recordings and watch booked jobs appear.</strong> No dashboards to babysit — just calls that used to go to voicemail, now on your books.</li></ol>
+</div></section>
+<section class="band"><div class="wrap">
+<h2 class="sec">Why Bullpen</h2>
+<div class="cards"><div class="card"><h3>Never miss a job</h3><p>after-hours and overflow calls get answered and booked, not voicemailed.</p></div><div class="card"><h3>Books, not just answers</h3><p>jobs land on your real schedule (Housecall Pro, Jobber, Google Calendar), with SMS confirmation to the caller.</p></div><div class="card"><h3>Done for you</h3><p>we build, tune, and monitor it; you review recordings, not settings screens.</p></div></div>
+</div></section>
+<section class="band"><div class="wrap">
+<h2 class="sec">Common questions</h2>
+<div class="faq"><details class="qa"><summary>&ldquo;Will customers hate talking to an AI?&rdquo;</summary><p>It identifies itself as an assistant right away, sounds natural, and most callers still prefer it to voicemail. Listen to the recordings — the proof's right there.</p></details><details class="qa"><summary>&ldquo;What about real emergencies?&rdquo;</summary><p>Triage is conservative by design. Anything that sounds urgent gets transferred straight to your on-call tech — no AI sits on a real emergency.</p></details><details class="qa"><summary>&ldquo;We already have an answering service.&rdquo;</summary><p>They take messages. Bullpen books the job onto your calendar — and runs about the same cost.</p></details><details class="qa"><summary>&ldquo;What if it messes up?&rdquo;</summary><p>It starts on your overflow and after-hours calls only — nothing you're already handling gets touched. You review every recording in the first few weeks, so you see exactly what it says before it earns more of your call volume.</p></details></div>
+</div></section>
+<section class="band"><div class="wrap">
+<h2 class="sec">Pricing</h2>
+<div class="tablewrap"><table class="pricing">
+<thead><tr><th>Tier</th><th>Setup</th><th>Monthly</th><th>What's included</th></tr></thead>
+<tbody><tr><td><strong>After-Hours &amp; Overflow</strong></td><td>$1,000</td><td>$500/mo</td><td>Bullpen answers only when you can't: after hours, weekends, all-lines-busy.</td></tr><tr><td><strong>Full Receptionist</strong></td><td>$1,500</td><td>$900/mo</td><td>Everything above, plus first-line answering during business hours.</td></tr><tr><td><strong>Receptionist + Automations</strong></td><td>$2,500</td><td>$1,500/mo</td><td>Everything above, plus one back-office automation per quarter.</td></tr></tbody></table></div>
+<p class="pricenote">See the <a href="pricing.html">full pricing sheet</a> for what's included at each tier, plus month-to-month terms.</p>
+</div></section>
+<section class="finalband"><div class="wrap">
+<h2 class="condensed">Ready to stop losing jobs to voicemail?</h2>
+<div class="ctarow ctarow-center"><a class="btn btn-primary" href="mailto:hello@bullpenworks.com?subject=15-minute%20walkthrough">Book a 15-minute walkthrough</a><a class="btn btn-ghost" href="mailto:hello@bullpenworks.com">Email us: hello@bullpenworks.com</a></div>
+</div></section>
+</main>
+<footer><div class="wrap frow">
+<div>&copy; 2026 Bullpen Works &middot; <a href="mailto:hello@bullpenworks.com">hello@bullpenworks.com</a></div>
+<div>Our assistant always identifies itself as an assistant. Real emergencies go straight to a human.</div>
+</div></footer>
+</body>
+</html>

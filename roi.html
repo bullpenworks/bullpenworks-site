@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bullpen Works — What Are Missed Calls Costing You?</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --panel: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5b5f66;
+    --border: #dcdfe3;
+    --accent: #1d6f42;
+    --accent-soft: #e6f3ea;
+    --danger: #b3261e;
+    --danger-soft: #fbeaea;
+    --focus: #1d6f42;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --panel: #1d2026;
+      --text: #f1f2f4;
+      --muted: #a3a9b3;
+      --border: #33373f;
+      --accent: #4cb87a;
+      --accent-soft: #1c3327;
+      --danger: #e5675f;
+      --danger-soft: #3a1f1e;
+      --focus: #4cb87a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    padding: 24px 16px 48px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin: 0 0 6px;
+  }
+
+  .sub {
+    color: var(--muted);
+    margin: 0 0 24px;
+    font-size: 1rem;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+
+  .card h2 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  .field:last-child {
+    margin-bottom: 0;
+  }
+
+  .field-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+
+  .field-label span:first-child {
+    color: var(--text);
+  }
+
+  .number-input {
+    width: 84px;
+    padding: 6px 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.95rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .number-input:focus,
+  input[type="range"]:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+    height: 22px;
+  }
+
+  .results {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 560px) {
+    .results { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  .result {
+    border-radius: 12px;
+    padding: 16px;
+    background: var(--accent-soft);
+  }
+
+  .result.negative {
+    background: var(--danger-soft);
+  }
+
+  .result .label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .result .value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+
+  .result.negative .value {
+    color: var(--danger);
+  }
+
+  .payback {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px dashed var(--border);
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .payback strong {
+    color: var(--accent);
+  }
+
+  .fineprint {
+    margin-top: 22px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .fineprint p {
+    margin: 0 0 6px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>What are missed calls costing you?</h1>
+  <p class="sub">Every unanswered call is a job someone else books. Move the sliders to match your shop and see the number.</p>
+
+  <div class="card">
+    <h2>Your numbers</h2>
+
+    <div class="field">
+      <div class="field-label">
+        <span>Missed calls per week</span>
+        <input type="number" id="missed-number" class="number-input" min="0" max="100" step="1" value="10" aria-label="Missed calls per week">
+      </div>
+      <input type="range" id="missed-range" min="0" max="100" step="1" value="10" aria-label="Missed calls per week">
+    </div>
+
+    <div class="field">
+      <div class="field-label">
+        <span>% of missed calls that were real jobs</span>
+        <input type="number" id="jobpct-number" class="number-input" min="0" max="100" step="1" value="50" aria-label="Percent of missed calls that were real jobs">
+      </div>
+      <input type="range" id="jobpct-range" min="0" max="100" step="1" value="50" aria-label="Percent of missed calls that were real jobs">
+    </div>
+
+    <div class="field">
+      <div class="field-label">
+        <span>Average job value ($)</span>
+        <input type="number" id="value-number" class="number-input" min="0" max="10000" step="50" value="600" aria-label="Average job value in dollars">
+      </div>
+      <input type="range" id="value-range" min="0" max="10000" step="50" value="600" aria-label="Average job value in dollars">
+    </div>
+
+    <div class="field">
+      <div class="field-label">
+        <span>Close rate when you do answer</span>
+        <input type="number" id="close-number" class="number-input" min="0" max="100" step="1" value="60" aria-label="Close rate percent when you answer">
+      </div>
+      <input type="range" id="close-range" min="0" max="100" step="1" value="60" aria-label="Close rate percent when you answer">
+    </div>
+
+    <div class="field">
+      <div class="field-label">
+        <span>Monthly cost of a Bullpen plan ($)</span>
+        <input type="number" id="cost-number" class="number-input" min="0" max="5000" step="50" value="900" aria-label="Monthly cost in dollars">
+      </div>
+      <input type="range" id="cost-range" min="0" max="5000" step="50" value="900" aria-label="Monthly cost in dollars">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>What that means</h2>
+    <div class="results">
+      <div class="result">
+        <div class="label">Revenue lost per month</div>
+        <div class="value" id="out-lost">$0</div>
+      </div>
+      <div class="result">
+        <div class="label">Recoverable per month</div>
+        <div class="value" id="out-recovered">$0</div>
+      </div>
+      <div class="result" id="net-card">
+        <div class="label">Net monthly gain</div>
+        <div class="value" id="out-net">$0</div>
+      </div>
+    </div>
+
+    <div class="payback" id="payback-line">
+      <span id="payback-text">That's <strong id="payback-n">2</strong> saved job<span id="payback-plural">s</span> to break even — most shops save that in week one.</span>
+    </div>
+  </div>
+
+  <div class="fineprint">
+    <p>Recovered revenue is estimated at a conservative 70% capture rate — not every missed call converts, even with every call answered.</p>
+    <p>A missed emergency call is a lost $300–$3,000 job. At our entry tier ($500/mo), one saved job covers the fee.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var CAPTURE_RATE = 0.7;
+  var WEEKS_PER_MONTH = 4.33;
+
+  var fields = {
+    missed: { range: document.getElementById("missed-range"), number: document.getElementById("missed-number") },
+    jobpct: { range: document.getElementById("jobpct-range"), number: document.getElementById("jobpct-number") },
+    value: { range: document.getElementById("value-range"), number: document.getElementById("value-number") },
+    close: { range: document.getElementById("close-range"), number: document.getElementById("close-number") },
+    cost: { range: document.getElementById("cost-range"), number: document.getElementById("cost-number") }
+  };
+
+  var outLost = document.getElementById("out-lost");
+  var outRecovered = document.getElementById("out-recovered");
+  var outNet = document.getElementById("out-net");
+  var netCard = document.getElementById("net-card");
+  var paybackLine = document.getElementById("payback-line");
+  var paybackText = document.getElementById("payback-text");
+  var paybackN = document.getElementById("payback-n");
+  var paybackPlural = document.getElementById("payback-plural");
+
+  var moneyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0
+  });
+
+  function formatMoney(n) {
+    if (!isFinite(n)) n = 0;
+    var sign = n < 0 ? "-" : "";
+    return sign + moneyFormatter.format(Math.abs(n));
+  }
+
+  function clampNumber(raw, min, max) {
+    var n = parseFloat(raw);
+    if (isNaN(n)) n = 0;
+    if (n < min) n = min;
+    if (n > max) n = max;
+    return n;
+  }
+
+  // Every slider's min/max is kept identical to its paired number field's
+  // min/max (see the HTML), so the slider's visual position always reflects
+  // the exact value used in the math below — no silent pinning at a cap.
+  function readValue(key) {
+    var f = fields[key];
+    var min = parseFloat(f.number.min);
+    var max = parseFloat(f.number.max);
+    return clampNumber(f.number.value, isNaN(min) ? -Infinity : min, isNaN(max) ? Infinity : max);
+  }
+
+  function syncPair(key, sourceIsRange) {
+    var f = fields[key];
+    var min = parseFloat(f.number.min);
+    var max = parseFloat(f.number.max);
+    if (sourceIsRange) {
+      // Slider moved: copy straight across.
+      f.number.value = f.range.value;
+    } else {
+      // Number field edited: clamp to its own bounds, then mirror to the
+      // slider (same bounds, so this always lands exactly on the typed value).
+      var v = clampNumber(f.number.value, min, max);
+      f.range.value = v;
+    }
+  }
+
+  function calculate() {
+    var missed = readValue("missed");
+    var jobPct = readValue("jobpct") / 100;
+    var value = readValue("value");
+    var close = readValue("close") / 100;
+    var cost = readValue("cost");
+
+    var lost = missed * WEEKS_PER_MONTH * jobPct * value * close;
+    var recovered = lost * CAPTURE_RATE;
+    var net = recovered - cost;
+
+    outLost.textContent = formatMoney(lost);
+    outRecovered.textContent = formatMoney(recovered);
+    outNet.textContent = formatMoney(net);
+
+    if (net < 0) {
+      netCard.classList.add("negative");
+    } else {
+      netCard.classList.remove("negative");
+    }
+
+    if (value > 0) {
+      var jobsToBreakEven = Math.ceil(cost / value);
+      if (jobsToBreakEven < 0) jobsToBreakEven = 0;
+      paybackN.textContent = jobsToBreakEven;
+      paybackPlural.textContent = jobsToBreakEven === 1 ? "" : "s";
+      paybackText.style.display = "";
+    } else {
+      // Avoid dividing by zero; hide the sentence rather than showing a
+      // meaningless break-even count when no job value is set.
+      paybackText.style.display = "none";
+    }
+  }
+
+  Object.keys(fields).forEach(function (key) {
+    var f = fields[key];
+    f.range.addEventListener("input", function () {
+      syncPair(key, true);
+      calculate();
+    });
+    f.number.addEventListener("input", function () {
+      syncPair(key, false);
+      calculate();
+    });
+    f.number.addEventListener("blur", function () {
+      var min = parseFloat(f.number.min);
+      var max = parseFloat(f.number.max);
+      f.number.value = clampNumber(f.number.value, min, max);
+      syncPair(key, false);
+      calculate();
+    });
+  });
+
+  calculate();
+})();
+</script>
+</body>
+</html>
