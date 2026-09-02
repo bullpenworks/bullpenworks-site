@@ -293,6 +293,39 @@
   var paybackN = document.getElementById("payback-n");
   var paybackPlural = document.getElementById("payback-plural");
 
+  // --- analytics (Google Tag Manager reads window.dataLayer; see the analytics spec in Notion) ---
+  window.dataLayer = window.dataLayer || [];
+  function track(name, params) {
+    var e = { event: name };
+    for (var k in params) if (Object.prototype.hasOwnProperty.call(params, k)) e[k] = params[k];
+    window.dataLayer.push(e);
+  }
+  function savingsBucket(net) {
+    if (net < 0) return "negative";
+    if (net < 1000) return "$0-1k";
+    if (net < 3000) return "$1k-3k";
+    if (net < 10000) return "$3k-10k";
+    return "$10k+";
+  }
+  var interactionTimers = {};
+  var resultTimer = null;
+  var lastBucketSent = null;
+  var lastNet = 0;
+  function noteInteraction(key) {
+    clearTimeout(interactionTimers[key]);
+    interactionTimers[key] = setTimeout(function () {
+      track("roi_calculator_interaction", { slider_name: key });
+    }, 600);
+    clearTimeout(resultTimer);
+    resultTimer = setTimeout(function () {
+      var bucket = savingsBucket(lastNet);
+      if (bucket !== lastBucketSent) {
+        lastBucketSent = bucket;
+        track("roi_calculator_result_viewed", { estimated_monthly_savings: bucket });
+      }
+    }, 1500);
+  }
+
   var moneyFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -348,6 +381,7 @@
     var lost = missed * WEEKS_PER_MONTH * jobPct * value * close;
     var recovered = lost * CAPTURE_RATE;
     var net = recovered - cost;
+    lastNet = net;
 
     outLost.textContent = formatMoney(lost);
     outRecovered.textContent = formatMoney(recovered);
@@ -377,10 +411,12 @@
     f.range.addEventListener("input", function () {
       syncPair(key, true);
       calculate();
+      noteInteraction(key);
     });
     f.number.addEventListener("input", function () {
       syncPair(key, false);
       calculate();
+      noteInteraction(key);
     });
     f.number.addEventListener("blur", function () {
       var min = parseFloat(f.number.min);
