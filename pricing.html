@@ -48,7 +48,7 @@ body{margin:0;background:var(--paper);color:var(--ink);
   text-transform:uppercase;letter-spacing:.04em;font-weight:700}
 .wrap{max-width:1020px;margin:0 auto;padding:0 22px}
 header.top{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:10}
-.topbar{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap}
+.topbar{display:flex;align-items:center;gap:18px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
 .wordmark{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-weight:700;
   text-transform:uppercase;letter-spacing:.08em;font-size:19px;color:var(--ink);text-decoration:none}
 .wordmark span{color:var(--accent)}
@@ -57,7 +57,7 @@ nav.main a{color:var(--muted);text-decoration:none;font-size:14.5px;padding:6px 
 nav.main a:hover{background:var(--steel-soft);color:var(--ink)}
 nav.main a.active{color:var(--accent);font-weight:600}
 nav.main a.navcta{background:var(--accent);color:var(--accent-ink);font-weight:600}
-.hero{padding:64px 0 46px}
+.hero{padding-top:64px;padding-bottom:46px}
 .hero h1{font-size:clamp(34px,5.5vw,56px);line-height:1.04;margin:0 0 16px;max-width:17ch;text-wrap:balance}
 .hero h1.has-kicker{max-width:none}
 .hero h1 .headline{display:block;max-width:17ch}
@@ -130,7 +130,7 @@ footer a{color:var(--steel)}
   nav.main a{padding:12px 4px}
   nav.main a.navcta{margin-top:8px;text-align:center}
   .topbar{gap:10px 14px}
-  .hero{padding:44px 0 36px}
+  .hero{padding-top:44px;padding-bottom:36px}
   section.band{padding:32px 0}
   .stat,.card{padding:18px}
   details.qa summary{padding:16px 18px}
@@ -153,8 +153,7 @@ footer a{color:var(--steel)}
 <main><div class="wrap hero"><h1 class="condensed">AI Answering Service Pricing for Skilled Trades</h1>
 <p class="subhead">Four tiers. Month-to-month after 90 days. One saved job per month covers the fee.</p><div class="ctarow"><a class="btn btn-primary" href="tel:+17193949475">Call our demo line and hear it answer: (719) 394-9475</a><a class="btn btn-ghost" href="mailto:hello@bullpenworks.com?subject=15-minute%20walkthrough">Book a 15-minute walkthrough</a></div></div>
 <section class="band"><div class="wrap"><p>A missed emergency call is a lost $300–$3,000 job. One saved job per month covers the fee.</p>
-<p>Month-to-month — cancel anytime after the first 90 days. Judge us by one number: jobs booked</p>
-<p>that used to go to voicemail. You get that report every month.</p>
+<p>Month-to-month — cancel anytime after the first 90 days. Judge us by one number: jobs booked that used to go to voicemail. You get that report every month.</p>
 <div class="tablewrap"><table class="pricing"><thead><tr><th>Tier</th><th>Setup</th><th>Monthly</th><th>What's included</th></tr></thead><tbody>
 <tr><td><strong>Starter</strong><br><a class="btn btn-ghost tier-cta tier-starter" href="mailto:hello@bullpenworks.com?subject=15-minute%20walkthrough%20%E2%80%94%20Starter%20plan">Get started</a></td><td>$750</td><td>$300/mo</td><td>Nights, weekends, and overflow only — Bullpen answers when you can't. Booking into your calendar, SMS confirmations, emergency transfer to on-call. Up to 60 answered calls a month. Most shops outgrow it in 60 days.</td></tr>
 <tr><td><strong>Core</strong><br><a class="btn btn-ghost tier-cta tier-core" href="mailto:hello@bullpenworks.com?subject=15-minute%20walkthrough%20%E2%80%94%20Core%20plan">Get started</a></td><td>$1,000</td><td>$500/mo</td><td>Everything in Starter with room to run: after hours, weekends, all-lines-busy. Up to 100 answered calls a month.</td></tr>
@@ -163,21 +162,13 @@ footer a{color:var(--steel)}
 </tbody></table></div>
 <p>Additional custom automation projects quoted separately at $2k–10k.</p>
 <h2 class="sec">What this replaces</h2>
-<p class="pricenote">&bull; <strong>A CSR hire:</strong> $40k+/yr in salary and benefits, answers only while they're on shift. Bullpen</p>
-<p>is a fraction of that seat, around the clock — and when you <em>are</em> ready for that hire, we're</p>
-<p>the overflow and after-hours layer they'll thank you for.</p>
-<p class="pricenote">&bull; <strong>A human answering service:</strong> takes messages on a per-minute meter — at 150 calls a month</p>
-<p>(~600 minutes) that's ~$1,170/mo, and you still call everyone back. Bullpen books the job</p>
-<p>while the customer is on the line.</p>
+<p class="pricenote">&bull; <strong>A CSR hire:</strong> $40k+/yr in salary and benefits, answers only while they're on shift. Bullpen is a fraction of that seat, around the clock — and when you <em>are</em> ready for that hire, we're the overflow and after-hours layer they'll thank you for.</p>
+<p class="pricenote">&bull; <strong>A human answering service:</strong> takes messages on a per-minute meter — at 150 calls a month (~600 minutes) that's ~$1,170/mo, and you still call everyone back. Bullpen books the job while the customer is on the line.</p>
 <h2 class="sec">Notes</h2>
 <p class="pricenote">&bull; Month-to-month after the first 90 days — no long-term contract required.</p>
-<p class="pricenote">&bull; Call allotments cover most shops with room to spare. Run hotter than your tier? We'll flag it</p>
-<p>before you hit the cap — move up a tier or pay the overage ($3 per extra answered call on</p>
-<p>Starter, $2 on Core and up), whichever is cheaper for you.</p>
-<p class="pricenote">&bull; Setup includes call-flow design, integration with Housecall Pro, Jobber, or Google Calendar,</p>
-<p>and two weeks of recording review.</p>
-<p class="pricenote">&bull; Real emergencies never wait: intake only, deterministic triggers, straight transfer to your</p>
-<p>on-call tech — and a human calls the customer back within 10 minutes if the line's busy.</p>
+<p class="pricenote">&bull; Call allotments cover most shops with room to spare. Run hotter than your tier? We'll flag it before you hit the cap — move up a tier or pay the overage ($3 per extra answered call on Starter, $2 on Core and up), whichever is cheaper for you.</p>
+<p class="pricenote">&bull; Setup includes call-flow design, integration with Housecall Pro, Jobber, or Google Calendar, and two weeks of recording review.</p>
+<p class="pricenote">&bull; Real emergencies never wait: intake only, deterministic triggers, straight transfer to your on-call tech — and a human calls the customer back within 10 minutes if the line's busy.</p>
 <p class="pricenote">&bull; A missed emergency call is a lost $300–$3,000 job. One saved job per month covers the fee.</p>
 <p class="pricenote">&bull; Every deployment starts with a 2-week tuning period.</p>
 <p class="pricenote">Not sure what tier fits? <a href="/roi">See what missed calls are costing you first.</a></p>
