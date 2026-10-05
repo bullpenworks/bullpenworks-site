@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="Bullpen Works — every call answered, every job booked. 24/7 receptionist for skilled trades.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bullpenworks.com/og-default.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Bullpen Works","url":"https://bullpenworks.com/","email":"hello@bullpenworks.com","telephone":"(719) 394-9475","description":"Every call answered, every job booked \u2014 24/7 receptionist with a human safety net, plus back-office automation, for skilled trades.","slogan":"Every call answered, every job booked."},{"@type":"Service","name":"AI Phone Receptionist for Skilled Trades","provider":{"@type":"Organization","name":"Bullpen Works"},"areaServed":"US","serviceType":"Answering service / appointment booking","audience":{"@type":"Audience","audienceType":"HVAC, plumbing, electrical, and solar companies"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Bullpen Works","url":"https://bullpenworks.com/","email":"hello@bullpenworks.com","telephone":"(719) 394-9475","description":"Every call answered, every job booked \u2014 24/7 receptionist with a human safety net, plus back-office automation, for skilled trades.","slogan":"Every call answered, every job booked."},{"@type":"Service","name":"AI Phone Receptionist for Skilled Trades","provider":{"@type":"Organization","name":"Bullpen Works"},"areaServed":"US","serviceType":"Answering service / appointment booking","audience":{"@type":"Audience","audienceType":"HVAC, plumbing, and electrical companies"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this number exact?","acceptedAnswer":{"@type":"Answer","text":"No \u2014 it's a conservative estimate, not a quote. The 70% capture rate assumes some missed calls would never have converted even with an answer; run your own numbers above, then confirm the real figure with a 15-minute walkthrough of your actual call log."}},{"@type":"Question","name":"What counts as a missed call?","acceptedAnswer":{"@type":"Answer","text":"Any call that goes to voicemail, rings out, or gets a busy signal because no one was free to answer \u2014 after-hours, during a job, or when the phones are overwhelmed during a surge. Emergency calls (no heat, no cool, a burst pipe) are the highest-cost misses since they go to whoever answers first."}},{"@type":"Question","name":"How is close rate different from capture rate?","acceptedAnswer":{"@type":"Answer","text":"Close rate is how often you win a job once someone answers the phone \u2014 a number you already know from your own conversions. Capture rate is the share of that lost revenue we count as recoverable once Bullpen is answering: the calculator uses a conservative 70% rather than assuming every missed call comes back as a booked job."}},{"@type":"Question","name":"Does this account for emergency vs. routine calls?","acceptedAnswer":{"@type":"Answer","text":"Not directly \u2014 the calculator uses one average job value across all missed calls. Emergency calls usually run above that average, so a shop mostly missing emergency calls is probably looking at a bigger number than the calculator shows, not a smaller one."}},{"@type":"Question","name":"What if my numbers don't match my gut feeling?","acceptedAnswer":{"@type":"Answer","text":"Trust your call log over your gut \u2014 missed calls are easy to undercount until you actually pull the log. Pull your real numbers in a 15-minute walkthrough and we'll run the math together instead of guessing."}}]}]}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📞</text></svg>">
 <style>
 :root {
@@ -59,7 +59,15 @@ nav.main a.active{color:var(--accent);font-weight:600}
 nav.main a.navcta{background:var(--accent);color:var(--accent-ink);font-weight:600}
 .hero{padding:64px 0 46px}
 .hero h1{font-size:clamp(34px,5.5vw,56px);line-height:1.04;margin:0 0 16px;max-width:17ch;text-wrap:balance}
+.hero h1.has-kicker{max-width:none}
+.hero h1 .headline{display:block;max-width:17ch}
+.hero h1 .kicker{display:block;font-family:"Avenir Next","Helvetica Neue",system-ui,sans-serif;
+  text-transform:none;font-weight:600;letter-spacing:.02em;font-size:14px;line-height:1.3;
+  color:var(--muted);margin-bottom:10px}
 .hero .subhead{font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 26px}
+.hero .trades{color:var(--muted);font-size:15.5px;margin:-14px 0 26px}
+a{color:var(--steel)}
+.coda{max-width:62ch;margin:22px 0 0}
 .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:16px;
   padding:13px 22px;border-radius:8px;border:1px solid transparent}
 .btn-primary{background:var(--accent);color:var(--accent-ink)}
@@ -103,6 +111,7 @@ table.pricing td{border-bottom:1px solid var(--line);padding:12px 14px 12px 0;ve
 .pricenote{color:var(--muted);font-size:14.5px;margin-top:14px}
 .finalband{background:var(--accent-soft);border-top:1px solid var(--line);padding:56px 0;text-align:center}
 .finalband h2{font-size:clamp(26px,4vw,38px);margin:0 0 22px}
+.finalband p{max-width:60ch;margin:-8px auto 22px}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
 footer .frow{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
 footer a{color:var(--steel)}
@@ -135,6 +144,8 @@ footer a{color:var(--steel)}
 </style>
 <script>document.documentElement.className+=' js'</script>
 <style>.roi-wrap{--danger:#b3261e;--danger-soft:#fbeaea}
+.roi-wrap .intro{margin:0 0 8px}
+.roi-more{max-width:720px;margin:0 auto}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .roi-wrap{--danger:#e5675f;--danger-soft:#3a1f1e}}
 .roi-wrap{
     max-width: 720px;
@@ -264,6 +275,7 @@ footer a{color:var(--steel)}
 <main>
 <div class="wrap"><div class="roi-wrap">
   <h1>What are missed calls costing you?</h1>
+  <p class="intro">Bullpen Works is a 24/7 receptionist for HVAC, plumbing, and electrical companies — it answers every call and books the job while the customer's still on the line. Use the numbers below to see what missed calls are actually costing you.</p>
   <p class="sub">Every unanswered call is a job someone else books. Move the sliders to match your shop and see the number.</p>
 
   <div class="card">
@@ -336,7 +348,18 @@ footer a{color:var(--steel)}
     <p>Recovered revenue is estimated at a conservative 70% capture rate — not every missed call converts, even with every call answered.</p>
     <p>A missed emergency call is a lost $300–$3,000 job. At our entry tier ($300/mo), one saved job covers the fee.</p>
   </div>
-</div></div></main>
+</div></div>
+<section class="band"><div class="wrap"><div class="roi-more"><h2 class="sec">How we calculate this</h2>
+<p>The math is simple on purpose. Missed calls per week, times 4.33 weeks in a month, times the share that were real jobs, times your average job value, times your close rate gives you revenue lost per month. We apply a conservative 70% capture rate to get recoverable revenue — not every missed call converts, even when someone's there to answer it — then subtract your plan cost for the net gain.</p>
+<p>Two numbers matter most: the share of missed calls that were real jobs (not spam, wrong numbers, or calls you'd have lost anyway), and your close rate when you do answer. Pull those from your own call log rather than guessing — a 15-minute walkthrough is enough to get real numbers instead of an industry average.</p></div></div></section>
+<section class="band"><div class="wrap"><div class="roi-more">
+<h2 class="sec">Common questions</h2>
+<div class="faq"><details class="qa"><summary>&ldquo;Is this number exact?&rdquo;</summary><p>No — it's a conservative estimate, not a quote. The 70% capture rate assumes some missed calls would never have converted even with an answer; run your own numbers above, then confirm the real figure with a 15-minute walkthrough of your actual call log.</p></details><details class="qa"><summary>&ldquo;What counts as a missed call?&rdquo;</summary><p>Any call that goes to voicemail, rings out, or gets a busy signal because no one was free to answer — after-hours, during a job, or when the phones are overwhelmed during a surge. Emergency calls (no heat, no cool, a burst pipe) are the highest-cost misses since they go to whoever answers first.</p></details><details class="qa"><summary>&ldquo;How is close rate different from capture rate?&rdquo;</summary><p>Close rate is how often you win a job once someone answers the phone — a number you already know from your own conversions. Capture rate is the share of that lost revenue we count as recoverable once Bullpen is answering: the calculator uses a conservative 70% rather than assuming every missed call comes back as a booked job.</p></details><details class="qa"><summary>&ldquo;Does this account for emergency vs. routine calls?&rdquo;</summary><p>Not directly — the calculator uses one average job value across all missed calls. Emergency calls usually run above that average, so a shop mostly missing emergency calls is probably looking at a bigger number than the calculator shows, not a smaller one.</p></details><details class="qa"><summary>&ldquo;What if my numbers don't match my gut feeling?&rdquo;</summary><p>Trust your call log over your gut — missed calls are easy to undercount until you actually pull the log. Pull your real numbers in a 15-minute walkthrough and we'll run the math together instead of guessing.</p></details></div>
+</div></div></section>
+<section class="finalband"><div class="wrap">
+<h2 class="condensed">See these numbers turn into booked jobs</h2>
+<p>Once you know what missed calls are costing you, the next step is hearing how Bullpen answers them: call the demo line, or book a 15-minute walkthrough and we'll pull your real numbers together. Or <a href="/pricing">see which plan fits your shop</a>.</p><div class="ctarow ctarow-center"><a class="btn btn-primary" href="tel:+17193949475">Call our demo line and hear it answer: (719) 394-9475</a><a class="btn btn-ghost" href="mailto:hello@bullpenworks.com?subject=15-minute%20walkthrough">Book a 15-minute walkthrough</a></div>
+</div></section></main>
 <footer><div class="wrap frow">
 <div>&copy; 2026 Bullpen Works &middot; <a href="mailto:hello@bullpenworks.com">hello@bullpenworks.com</a> &middot; Office: <a href="tel:+19297129427">(929) 712-9427</a> &middot; <a href="/privacy">Privacy</a></div>
 <div>Our assistant always identifies itself as an assistant. Real emergencies go straight to a human.</div>
